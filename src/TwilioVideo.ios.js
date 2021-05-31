@@ -160,7 +160,7 @@ export default class TwilioVideo extends Component {
     this._eventEmitter = new NativeEventEmitter(TWVideoModule)
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this._registerEvents()
     this._startLocalVideo()
     this._startLocalAudio()
@@ -229,8 +229,25 @@ export default class TwilioVideo extends Component {
    * @param  {String} encodingParameters Control Encoding config
    * @param  {Boolean} enableNetworkQualityReporting Report network quality of participants
    */
-  connect ({ roomName, accessToken, enableVideo = true, encodingParameters = null, enableNetworkQualityReporting = false, dominantSpeakerEnabled = false }) {
-    TWVideoModule.connect(accessToken, roomName, enableVideo, encodingParameters, enableNetworkQualityReporting, dominantSpeakerEnabled)
+  connect ({
+    roomName,
+    accessToken,
+    cameraType = "front",
+    enableAudio = true,
+    enableVideo = true,
+    encodingParameters = null,
+    enableNetworkQualityReporting = false,
+    dominantSpeakerEnabled = false
+  }) {
+    TWVideoModule.connect(accessToken,
+      roomName,
+      enableAudio,
+      enableVideo,
+      encodingParameters,
+      enableNetworkQualityReporting,
+      dominantSpeakerEnabled,
+      cameraType,
+    )
   }
 
   /**

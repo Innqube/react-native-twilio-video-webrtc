@@ -15,12 +15,12 @@ Property | Type | Required | Default value | Description
 onCameraSwitched | func | no |  | Callback that is called when camera source changes
 onVideoChanged | func | no |  | Callback that is called when video is toggled.
 onAudioChanged | func | no |  | Callback that is called when a audio is toggled.
-onRoomDidConnect | func | no |  | Callback that is called when user is connected to a room.
+onRoomDidConnect | func | no |  | Called when the room has connected  @param {{roomName, participants, localParticipant}}
 onRoomDidFailToConnect | func | no |  | Callback that is called when connecting to room fails.
 onRoomDidDisconnect | func | no |  | Callback that is called when user is disconnected from room.
 onParticipantAddedDataTrack | func | no |  | Called when a new data track has been added  @param {{participant, track}}
 onParticipantRemovedDataTrack | func | no |  | Called when a data track has been removed  @param {{participant, track}}
-onDataTrackMessageReceived | func | no |  | Called when an dataTrack receives a message  @param {{message}}
+onDataTrackMessageReceived | func | no |  | Called when an dataTrack receives a message  @param {{message, trackSid}}
 onParticipantAddedVideoTrack | func | no |  | Called when a new video track has been added  @param {{participant, track, enabled}}
 onParticipantRemovedVideoTrack | func | no |  | Called when a video track has been removed  @param {{participant, track}}
 onParticipantAddedAudioTrack | func | no |  | Called when a new audio track has been added  @param {{participant, track}}
@@ -47,7 +47,7 @@ onDominantSpeakerDidChange | func | no |  | Called when dominant speaker changes
 Property | Type | Required | Default value | Description
 :--- | :--- | :--- | :--- | :---
 screenShare | bool | no |  | Flag that enables screen sharing RCTRootView instead of camera capture
-onRoomDidConnect | func | no |  | Called when the room has connected  @param {{roomName, participants}}
+onRoomDidConnect | func | no |  | Called when the room has connected  @param {{roomName, participants, localParticipant}}
 onRoomDidDisconnect | func | no |  | Called when the room has disconnected  @param {{roomName, error}}
 onRoomDidFailToConnect | func | no |  | Called when connection with room failed  @param {{roomName, error}}
 onRoomParticipantDidConnect | func | no |  | Called when a new participant has connected  @param {{roomName, participant}}
@@ -62,7 +62,7 @@ onParticipantEnabledVideoTrack | func | no |  | Called when a video track has be
 onParticipantDisabledVideoTrack | func | no |  | Called when a video track has been disabled.  @param {{participant, track}}
 onParticipantEnabledAudioTrack | func | no |  | Called when an audio track has been enabled.  @param {{participant, track}}
 onParticipantDisabledAudioTrack | func | no |  | Called when an audio track has been disabled.  @param {{participant, track}}
-onDataTrackMessageReceived | func | no |  | Called when an dataTrack receives a message  @param {{message}}
+onDataTrackMessageReceived | func | no |  | Called when an dataTrack receives a message  @param {{message, trackSid}}
 onCameraDidStart | func | no |  | Called when the camera has started
 onCameraWasInterrupted | func | no |  | Called when the camera has been interrupted
 onCameraInterruptionEnded | func | no |  | Called when the camera interruption has ended
